@@ -11,7 +11,6 @@ import android.widget.FrameLayout;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
-import com.scottyab.rootbeer.RootBeer;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 
 import org.jetbrains.annotations.NotNull;
@@ -42,15 +41,6 @@ public class MainActivity extends ReactActivity {
                 removeSplash();
             }
         }, 2000);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        RootBeer rootBeer = new RootBeer(this);
-        if (!BuildConfig.DEBUG && rootBeer.isRooted()) {
-           finishAndRemoveTask();
-        }
     }
 
     @Override

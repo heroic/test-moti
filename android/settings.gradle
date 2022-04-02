@@ -1,9 +1,3 @@
 rootProject.name = 'GalaxyCardApp'
-include ':react-native-signature-capture'
-project(':react-native-signature-capture').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-signature-capture/android')
-include ':react-native-settings'
-project(':react-native-settings').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-settings/android')
-include ':react-native-code-push'
-project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
