@@ -1,6 +1,6 @@
-import {MotiView} from 'moti';
 import React from 'react';
 import {StyleProp, StyleSheet, Text, ViewStyle} from 'react-native';
+import Animated, {useAnimatedStyle} from 'react-native-reanimated';
 // import Text from '../../../components/Text';
 
 interface Props {
@@ -16,6 +16,16 @@ export const PayInEmiButton = ({style, onPress, showEmis}: Props) => {
   //   useSuspense: false,
   // });
 
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          rotate: '270deg',
+        },
+      ],
+    };
+  }, []);
+
   return (
     // <Button
     //   appearance="secondary"
@@ -24,12 +34,12 @@ export const PayInEmiButton = ({style, onPress, showEmis}: Props) => {
     //   style={style}
     //   onPress={onPress}>
     //   <Row style={styles.buttonRow}>
-    <MotiView from={{scale: 1}} animate={{scale: 2}}>
+    <Animated.View style={animatedStyle}>
       <Text style={styles.payInEmi}>
         {/* {t('transactionHistory:convertToEmi')} */}
         abc
       </Text>
-    </MotiView>
+    </Animated.View>
     //     <Dropdown style={styles.down} />
     //   </Row>
     // </Button>
