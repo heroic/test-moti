@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name_release">GalaxyCard</string>
+    <string name="app_name_debug">GalaxyCard Debug</string>
+    <string name="app_name_staging">GalaxyCard Staging</string>
+    <string name="facebook_app_id">698376373678245</string>
+    <string name="truecaller_appkey_debug">Tsdh90094062d7d884a67a18fa0402ca81d55</string>
+    <string name="truecaller_appkey_staging">Tsdh90094062d7d884a67a18fa0402ca81d55</string>
+    <string name="truecaller_appkey_release">PAVqw9e5e13d2312a4213bca9cf477419a922</string>
+    <string name="codepush_debug"></string>
+    <string name="codepush_staging">25nVXE0FwePfwuaN7_BPgqTDfF1xa17d5d90-f282-43b3-9396-d8bffa5c4556</string>
+    <string name="codepush_release">fqsOcOGtyiaR7WPVS9eGtOB7Sclna17d5d90-f282-43b3-9396-d8bffa5c4556</string>
+</resources>

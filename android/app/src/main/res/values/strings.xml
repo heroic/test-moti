@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name_release">Test</string>
+    <string name="app_name_debug">Test Debug</string>
+    <string name="app_name_staging">Test Staging</string>
+    <string name="facebook_app_id"></string>
+    <string name="truecaller_appkey_debug"></string>
+    <string name="truecaller_appkey_staging"></string>
+    <string name="truecaller_appkey_release"></string>
+    <string name="codepush_debug"></string>
+    <string name="codepush_staging"></string>
+    <string name="codepush_release"></string>
+</resources>

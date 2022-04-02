@@ -1,0 +1,31 @@
+diff --git a/node_modules/react-native-vision-camera/src/Camera.tsx b/node_modules/react-native-vision-camera/src/Camera.tsx
+index 68417ac..ba5967c 100644
+--- a/node_modules/react-native-vision-camera/src/Camera.tsx
++++ b/node_modules/react-native-vision-camera/src/Camera.tsx
+@@ -1,9 +1,9 @@
+ import React from 'react';
+-import { requireNativeComponent, NativeModules, NativeSyntheticEvent, findNodeHandle, NativeMethods, Platform } from 'react-native';
++import { findNodeHandle, NativeMethods, NativeModules, NativeSyntheticEvent, Platform, requireNativeComponent } from 'react-native';
+ import type { FrameProcessorPerformanceSuggestion, VideoFileType } from '.';
+ import type { CameraDevice } from './CameraDevice';
+ import type { ErrorWithCause } from './CameraError';
+-import { CameraCaptureError, CameraRuntimeError, tryParseNativeCameraError, isErrorWithCause } from './CameraError';
++import { CameraCaptureError, CameraRuntimeError, isErrorWithCause, tryParseNativeCameraError } from './CameraError';
+ import type { CameraProps } from './CameraProps';
+ import type { Frame } from './Frame';
+ import type { PhotoFile, TakePhotoOptions } from './PhotoFile';
+@@ -441,8 +441,12 @@ export class Camera extends React.PureComponent<CameraProps> {
+ 
+   private unsetFrameProcessor(): void {
+     this.assertFrameProcessorsEnabled();
+-    // @ts-expect-error JSI functions aren't typed
+-    global.unsetFrameProcessor(this.handle);
++    try {
++      // @ts-expect-error JSI functions aren't typed
++      global.unsetFrameProcessor(this.handle);
++    } catch (e) {
++      console.warn(e);
++    }
+   }
+ 
+   private onViewReady(): void {

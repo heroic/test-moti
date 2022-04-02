@@ -1,0 +1,38 @@
+diff --git a/node_modules/react-native-jsi-contacts/android/build.gradle b/node_modules/react-native-jsi-contacts/android/build.gradle
+index 8f4b115..edcf996 100644
+--- a/node_modules/react-native-jsi-contacts/android/build.gradle
++++ b/node_modules/react-native-jsi-contacts/android/build.gradle
+@@ -59,7 +59,7 @@ android {
+   }
+ 
+   packagingOptions {
+-    excludes = ["**/libc++_shared.so", "**/libfbjni.so"]
++    excludes = ["**/libc++_shared.so", "**/libfbjni.so", "META-INF/**"]
+   }
+ 
+   buildTypes {
+@@ -156,9 +156,9 @@ dependencies {
+   implementation 'com.facebook.react:react-native:+'
+ 
+   //noinspection GradleDynamicVersion
+-  extractHeaders("com.facebook.fbjni:fbjni:+:headers")
++  extractHeaders("com.facebook.fbjni:fbjni:0.2.2:headers")
+   //noinspection GradleDynamicVersion
+-  extractJNI("com.facebook.fbjni:fbjni:+")
++  extractJNI("com.facebook.fbjni:fbjni:0.2.2")
+ 
+   def rnAAR = fileTree("${rootDir}/../node_modules/react-native/android").matching({ it.include "**/**/*.aar" }).singleFile
+   extractJNI(files(rnAAR))
+diff --git a/node_modules/react-native-jsi-contacts/android/src/main/cpp/JSIContacts.cpp b/node_modules/react-native-jsi-contacts/android/src/main/cpp/JSIContacts.cpp
+index f4f88d4..892f48a 100644
+--- a/node_modules/react-native-jsi-contacts/android/src/main/cpp/JSIContacts.cpp
++++ b/node_modules/react-native-jsi-contacts/android/src/main/cpp/JSIContacts.cpp
+@@ -22,7 +22,7 @@ namespace mrousavy {
+         }
+         if (name == "getHashAsync") {
+             return jsi::Function::createFromHostFunction(runtime,
+-                                                         jsi::PropNameID::forAscii(runtime, "getContactsAsync"),
++                                                         jsi::PropNameID::forAscii(runtime, "getHashAsync"),
+                                                          0,
+                                                          [this](jsi::Runtime& runtime,
+                                                                 const jsi::Value&,
