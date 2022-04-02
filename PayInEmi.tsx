@@ -1,6 +1,7 @@
+import {MotiView} from 'moti';
 import React from 'react';
 import {StyleProp, StyleSheet, Text, ViewStyle} from 'react-native';
-import Animated, {useAnimatedStyle} from 'react-native-reanimated';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 // import Text from '../../../components/Text';
 
 interface Props {
@@ -16,15 +17,15 @@ export const PayInEmiButton = ({style, onPress, showEmis}: Props) => {
   //   useSuspense: false,
   // });
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          rotate: '270deg',
-        },
-      ],
-    };
-  }, []);
+  // const animatedStyle = useAnimatedStyle(() => {
+  //   return {
+  //     transform: [
+  //       {
+  //         rotate: '270deg',
+  //       },
+  //     ],
+  //   };
+  // }, []);
 
   return (
     // <Button
@@ -34,12 +35,14 @@ export const PayInEmiButton = ({style, onPress, showEmis}: Props) => {
     //   style={style}
     //   onPress={onPress}>
     //   <Row style={styles.buttonRow}>
-    <Animated.View style={animatedStyle}>
-      <Text style={styles.payInEmi}>
-        {/* {t('transactionHistory:convertToEmi')} */}
-        abc
-      </Text>
-    </Animated.View>
+    <GestureHandlerRootView>
+      <MotiView animate={{rotate: '270deg'}}>
+        <Text style={styles.payInEmi}>
+          {/* {t('transactionHistory:convertToEmi')} */}
+          abc
+        </Text>
+      </MotiView>
+    </GestureHandlerRootView>
     //     <Dropdown style={styles.down} />
     //   </Row>
     // </Button>

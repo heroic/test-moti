@@ -7,6 +7,7 @@
 // }
 
 import 'react-native-reanimated';
+import 'react-native-gesture-handler';
 
 // import {onAppBeginLaunch} from './src/launch-profiler';
 
