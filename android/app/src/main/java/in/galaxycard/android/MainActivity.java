@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.bugsnag.android.Bugsnag;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
@@ -58,17 +57,6 @@ public class MainActivity extends ReactActivity {
     public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-    }
-
-    @Override
-    public void onTrimMemory(int level) {
-        Bugsnag.leaveBreadcrumb("Low on memory with level" + level);
-    }
-
-    @Override
-    public void onRestart() {
-        super.onRestart();
-        Bugsnag.leaveBreadcrumb("restarting");
     }
 
     public void onJsReady() {

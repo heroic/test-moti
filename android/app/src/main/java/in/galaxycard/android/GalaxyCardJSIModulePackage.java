@@ -4,7 +4,6 @@ import com.facebook.react.bridge.JSIModuleSpec;
 import com.facebook.react.bridge.JavaScriptContextHolder;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.mrousavy.jsi.contacts.JsiContactsModule;
-import com.reactnativemmkv.MmkvModule;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 
 import java.util.List;

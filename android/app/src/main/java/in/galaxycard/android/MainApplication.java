@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.IntentFilter;
 
-import com.bugsnag.android.Bugsnag;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
@@ -16,9 +15,6 @@ import com.microsoft.codepush.react.CodePush;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-
-import io.rumors.reactnativesettings.receivers.AirplaneModeReceiver;
-import io.rumors.reactnativesettings.receivers.GpsLocationReceiver;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -89,14 +85,7 @@ public class MainApplication extends Application implements ReactApplication {
     public void onCreate() {
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
-        SoLoader.loadLibrary("bugsnag-ndk");
-        SoLoader.loadLibrary("bugsnag-plugin-android-anr");
-
-        Bugsnag.start(this);
-
+        
         initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
-
-        registerReceiver(new GpsLocationReceiver(), new IntentFilter("android.location.PROVIDERS_CHANGED"));
-        registerReceiver(new AirplaneModeReceiver(), new IntentFilter("android.intent.action.AIRPLANE_MODE"));
     }
 }
